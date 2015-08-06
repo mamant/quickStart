@@ -11,20 +11,20 @@
   <div class="container" id="medalDiv"></div>
   <script type="text/x-jquery-tmpl" id="medalTemplate">
     <table class="table-striped">
-    {{each model}}
-      <tr>
-        <td width="120"><img src="${$value.img}" class="img-thumbnail"></td>
-        <td>${$value.name}</td>
-        <td>${$value.medal}</td>
-        <td>${$value.about}</td>
-        <td>${$value.sport}</td>
-      </tr>
-    {{/each}}
+      {{each model}}
+        <tr>
+          <td width="120"><img src="${$value.img}" class="img-thumbnail"></td>
+          <td>${$value.name}</td>
+          <td>${$value.medal}</td>
+          <td>${$value.about}</td>
+          <td>${$value.sport}</td>
+        </tr>
+      {{/each}}
     </table>
   </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.tmpl.min.js"></script>
 
 <script>
  $(function () {
