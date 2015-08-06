@@ -4,19 +4,36 @@
   <meta charset="UTF-8">
   <title>Just</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="text/javascript" src="templating.js"></script>
-  <script type="text/javascript" src="init.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 </head>
 <body>
-  <div id="medalDiv"></div>
-  <script type="text/html" id="medalTemplate">
-    <tr id="row<%=id%>">
-      <td><%=name%></td>
-      <td><%=medal%></td>
-      <td><%=about%></td>
-      <td><img src="<%=img%>"/></td>
-      <td><%=sport%></td>
-    </tr>
+  <div class="container" id="medalDiv"></div>
+  <script type="text/x-jquery-tmpl" id="medalTemplate">
+    <table class="table-striped">
+    {{each model}}
+      <tr>
+        <td width="120"><img src="${$value.img}" class="img-thumbnail"></td>
+        <td>${$value.name}</td>
+        <td>${$value.medal}</td>
+        <td>${$value.about}</td>
+        <td>${$value.sport}</td>
+      </tr>
+    {{/each}}
+    </table>
   </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+
+<script>
+ $(function () {
+    var jqxhr = $.getJSON( "olympics.json", function(data) {
+      $("#medalTemplate").tmpl({
+        model: data
+      }).appendTo("#medalDiv");
+    });
+ });
+</script>
 </body>
 </html>
