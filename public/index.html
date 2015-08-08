@@ -10,7 +10,16 @@
 <body>
   <div class="container" id="medalDiv"></div>
   <script type="text/x-jquery-tmpl" id="medalTemplate">
-    <table class="table-striped">
+    <table class="table-striped data-table">
+      <thead>
+        <tr>
+        <th data-dynatable-column="img" class="dynatable-head">&nbsp;</th>
+        <th data-dynatable-column="name" class="dynatable-head">Name</th>
+        <th data-dynatable-column="medal" class="dynatable-head">Medal</th>
+        <th data-dynatable-column="about" class="dynatable-head">About</th>
+        <th data-dynatable-column="sport" class="dynatable-head">Sport</th>
+        </tr>
+        </thead>
       {{each model}}
         <tr>
           <td width="120"><img src="${$value.img}" class="img-thumbnail"></td>
@@ -25,6 +34,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/jquery.tmpl.min.js"></script>
+<script src="/js/jquery.dynatable.js"></script>
 
 <script>
  $(function () {
@@ -32,6 +42,12 @@
       $("#medalTemplate").tmpl({
         model: data
       }).appendTo("#medalDiv");
+
+       $('.data-table').dynatable({
+          table: {
+            defaultColumnIdStyle: 'trimDash'
+          }
+        });
     });
  });
 </script>
