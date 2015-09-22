@@ -8,4 +8,4 @@ Video for help your [instalation](https://docs.npmjs.com/getting-started/install
 
 - Run in your console `node index.js`
 
-- In your browser open [localhost:3333]
+- In your browser open (localhost:3333)[http://localhost:3333]
